@@ -1,0 +1,19 @@
+<div class="pt-5">
+  <form [formGroup]="authForm" (ngSubmit)="login()">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input [formControl]="emailControl" placeholder="Your email" matInput />
+      <mat-error>Este campo es requerido.</mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input [formControl]="passwordControl" type="password" placeholder="Your password" matInput />
+      <mat-error>Este campo es requerido.</mat-error>
+    </mat-form-field>
+    <br>
+    <button class="mt-3" mat-flat-button color="primary" [disabled]="authForm.invalid" type="submit" (click)="loginMessage()">
+      Ingresar
+    </button>
+  </form>
+</div>

@@ -1,0 +1,83 @@
+<div class="mb-3">
+  <button (click)="crearAlumno()" color="primary" mat-flat-button>
+    <mat-icon>add</mat-icon>
+    Agregar Alumno
+  </button>
+</div>
+
+<div class="justify-content-center align-content-end">
+  <mat-card-content>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let alumno">
+          {{ alumno.id }}
+        </td>
+      </ng-container>
+
+      <!-- Nombre Column -->
+      <ng-container matColumnDef="alumno">
+        <th mat-header-cell *matHeaderCellDef>Alumno</th>
+        <td mat-cell *matCellDef="let alumno">
+          {{ alumno | nombreCompleto }}
+        </td>
+      </ng-container>
+
+      <!-- Initials Column -->
+      <ng-container matColumnDef="iniciales">
+        <th mat-header-cell *matHeaderCellDef>Iniciales</th>
+        <td mat-cell *matCellDef="let alumno">{{ alumno | initials }}</td>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let alumno">
+          {{ alumno.email | lowercase }}
+        </td>
+      </ng-container>
+
+      <!-- Nota Column -->
+      <ng-container matColumnDef="nota">
+        <th mat-header-cell *matHeaderCellDef>Nota</th>
+        <td mat-cell *matCellDef="let alumno">
+          {{ alumno.nota | number : "1.0-0" }}
+        </td>
+      </ng-container>
+
+      <!-- Eliminar Column -->
+      <ng-container matColumnDef="eliminar">
+        <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+        <td mat-cell *matCellDef="let alumno">
+          <button mat-icon-button (click)="eliminarAlumno(alumno)">
+            <mat-icon>close</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Editar Column -->
+      <ng-container matColumnDef="editar">
+        <th mat-header-cell *matHeaderCellDef>Editar</th>
+        <td mat-cell *matCellDef="let alumno">
+          <button mat-icon-button (click)="editarAlumno(alumno)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Detalle Column -->
+      <ng-container matColumnDef="ver_detalle">
+        <th mat-header-cell *matHeaderCellDef>Detalle</th>
+        <td mat-cell *matCellDef="let alumno">
+          <button mat-icon-button>
+            <mat-icon>visibility</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </mat-card-content>
+</div>

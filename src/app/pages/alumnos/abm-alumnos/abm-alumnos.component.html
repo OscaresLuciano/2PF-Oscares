@@ -1,0 +1,71 @@
+<h1 mat-dialog-title>ABM Alumnos</h1>
+<div mat-dialog-content>
+    <form class="grid formgrid" [formGroup]="registerForm">
+
+    <!-- CONTROL DE NOMBRE -->
+
+    <div class="col-12 field">
+        <mat-form-field class="w-full">
+        <mat-label>Nombre</mat-label>
+        <input
+            [formControl]="nombreControl"
+            type="text"
+            matInput
+        >
+        <!-- <mat-error *ngFor="let error of nombreControl.errors | keyvalue">{{ error | controlErrorMessages }}</mat-error> -->
+        <mat-error>Este campo es requerido.</mat-error>
+        </mat-form-field>
+    </div>
+
+    <!-- CONTROL DE APELLIDO -->
+
+    <div class="col-12 field">
+        <mat-form-field class="w-full">
+        <mat-label>Apellido</mat-label>
+        <input
+            [formControl]="apellidoControl"
+            type="text"
+            matInput
+        >
+        <!-- <mat-error *ngFor="let error of nombreControl.errors | keyvalue">{{ error | controlErrorMessages }}</mat-error> -->
+        <mat-error>Este campo es requerido.</mat-error>
+        </mat-form-field>
+    </div>
+
+    <!-- CONTROL DE EMAIL -->
+
+    <div class="col-12 field">
+        <mat-form-field class="w-full">
+        <mat-label>Email</mat-label>
+        <input
+            [formControl]="emailControl"
+            type="email"
+            matInput
+        >
+        <!-- <mat-error *ngFor="let error of nombreControl.errors | keyvalue">{{ error | controlErrorMessages }}</mat-error> -->
+        <mat-error>Este campo es requerido.</mat-error>
+        </mat-form-field>
+    </div>
+
+    <!-- CONTROL DE NOTA -->
+
+    <div class="col-12 field">
+        <mat-form-field class="w-full">
+        <mat-label>Nota</mat-label>
+        <input
+            [formControl]="notaControl!"
+            type="email"
+            matInput
+        >
+        <!-- <mat-error *ngFor="let error of nombreControl.errors | keyvalue">{{ error | controlErrorMessages }}</mat-error> -->
+        <mat-error>Este campo es requerido.</mat-error>
+        </mat-form-field>
+    </div>
+
+    </form>
+</div>
+
+<div mat-dialog-actions class="p-3" style="justify-content: flex-end;">
+    <button mat-flat-button mat-dialog-close color="warn">Cancelar</button>
+    <button (click)="guardar()" mat-flat-button color="primary">Guardar</button>
+</div>
